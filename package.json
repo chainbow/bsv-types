@@ -1,0 +1,20 @@
+{
+    "name": "@types/bsv",
+    "version": "1.5.6",
+    "description": "TypeScript definitions for moneybutton/bsv",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Long LI",
+            "url": "https://github.com/baryon",
+            "githubUsername": "baryon"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "scripts": {},
+    "dependencies": {
+        "@types/bn.js": "*"
+    },
+    "typeScriptVersion": "3.4"
+}
