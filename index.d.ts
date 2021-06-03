@@ -389,7 +389,7 @@ declare module 'bsv' {
     isRBF(): boolean;
 
     inspect(): string;
-    serialize(): string;
+    serialize(opts?: object): string;
 
     toObject(): any;
     toBuffer(): Buffer;
