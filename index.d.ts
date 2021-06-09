@@ -398,6 +398,10 @@ declare module 'bsv' {
     isFullySigned(): boolean;
 
     getSerializationError(opts?: object): any;
+
+    _getUnspentValue(): number;
+    _estimateFee(): number;
+    _estimateSize: number;
   }
 
   export class ECIES {
