@@ -284,6 +284,7 @@ declare module 'bsv' {
       setScript(script: Script | string | Buffer): this;
       inspect(): string;
       toObject(): object;
+      getSize(): number;
     }
 
     class Input {
