@@ -620,20 +620,14 @@ declare module 'bsv' {
       threshold: number,
       opts: object
     ): Script;
-    function buildWitnessMultisigOutFromScript(script: Script): Script;
     function buildMultisigIn(
       pubkeys: PublicKey[],
       threshold: number,
       signatures: Buffer[],
       opts: object
     ): Script;
-    function buildP2SHMultisigIn(
-      pubkeys: PublicKey[],
-      threshold: number,
-      signatures: Buffer[],
-      opts: object
-    ): Script;
-    function buildPublicKeyHashOut(address: Address): Script;
+
+    function buildPublicKeyHashOut(address: Address | PublicKey | string): Script;
     function buildPublicKeyOut(pubkey: PublicKey): Script;
     function buildDataOut(data: string | Buffer, encoding?: string): Script;
     function buildScriptHashOut(script: Script): Script;
