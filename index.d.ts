@@ -316,7 +316,7 @@ declare module 'bsv' {
         inputNumber: number,
         subscript: Script,
         satoshisBN: crypto.BN,
-        flags: number
+        flags?: number
       ): Buffer;
       function sighash(
         transaction: Transaction,
@@ -324,7 +324,7 @@ declare module 'bsv' {
         inputNumber: number,
         subscript: Script,
         satoshisBN: crypto.BN,
-        flags: number
+        flags?: number
       ): Buffer;
       function sign(
         transaction: Transaction,
@@ -333,7 +333,7 @@ declare module 'bsv' {
         inputIndex: number,
         subscript: Script,
         satoshisBN: crypto.BN,
-        flags: number
+        flags?: number
       ): crypto.Signature;
       function verify(
         transaction: Transaction,
@@ -342,7 +342,7 @@ declare module 'bsv' {
         inputIndex: number,
         subscript: Script,
         satoshisBN: crypto.BN,
-        flags: number
+        flags?: number
       ): boolean;
     }
   }
