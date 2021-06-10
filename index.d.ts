@@ -391,6 +391,7 @@ declare module 'bsv' {
 
     inspect(): string;
     serialize(opts?: object): string;
+    uncheckedSerialize(): string;
 
     toObject(): any;
     toBuffer(): Buffer;
