@@ -156,6 +156,7 @@ declare module 'bsv' {
     class Base58Check {}
     class BufferReader {
       constructor(buf: Buffer);
+      read(len: number): Buffer;
       readUInt8(): number;
       readUInt16BE(): number;
       readUInt16LE(): number;
@@ -172,6 +173,7 @@ declare module 'bsv' {
       readReverse(len: number): Buffer;
     }
     class BufferWriter {
+      write(buf: Buffer): this;
       writeUInt8(n: number): this;
       writeUInt16BE(n: number): this;
       writeUInt16LE(n: number): this;

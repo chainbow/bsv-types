@@ -16,5 +16,8 @@
     "dependencies": {
         "@types/bn.js": "*"
     },
-    "typeScriptVersion": "3.4"
+    "typeScriptVersion": "3.4",
+    "devDependencies": {
+        "bsv": "^1.5.6"
+    }
 }
