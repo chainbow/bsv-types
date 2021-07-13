@@ -632,8 +632,7 @@ declare module 'bsv' {
 
     function buildPublicKeyHashOut(address: Address | PublicKey | string): Script;
     function buildPublicKeyOut(pubkey: PublicKey): Script;
-    function buildDataOut(data: string | Buffer, encoding?: string): Script;
-    function buildSafeDataOut(data: (string | Buffer)[]): Script;
+    function buildSafeDataOut(data: string | Buffer | Array<string | Buffer>, encoding?: string): Script;
     function buildScriptHashOut(script: Script): Script;
     function buildPublicKeyIn(
       signature: crypto.Signature | Buffer,
