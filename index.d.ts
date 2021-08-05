@@ -287,6 +287,7 @@ declare module 'bsv' {
       inspect(): string;
       toObject(): object;
       getSize(): number;
+      toBufferWriter(writer: encoding.BufferWriter): encoding.BufferWriter;
     }
 
     class Input {
