@@ -285,7 +285,7 @@ declare module 'bsv' {
 
       setScript(script: Script | string | Buffer): this;
       inspect(): string;
-      toObject(): object;
+      toObject(): {satoshis: number, script: string};
       getSize(): number;
       toBufferWriter(writer: encoding.BufferWriter): encoding.BufferWriter;
     }
