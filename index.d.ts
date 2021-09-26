@@ -451,8 +451,8 @@ declare module 'bsv' {
     static fromString(str: string): PrivateKey;
     static fromWIF(str: string): PrivateKey;
     static fromRandom(netowrk?: string): PrivateKey;
-    static fromBuffer(buf: Buffer, network: string | Networks.Type): PrivateKey;
-    static fromHex(hex: string, network: string | Networks.Type): PrivateKey;
+    static fromBuffer(buf: Buffer, network: Networks.Type): PrivateKey;
+    static fromHex(hex: string, network: Networks.Type): PrivateKey;
     static getValidationError(data: string): any | null;
     static isValid(data: string): boolean;
   }
@@ -467,7 +467,7 @@ declare module 'bsv' {
     toDER(): Buffer;
     toObject(): object;
     toBuffer(): Buffer;
-    toAddress(network?: string | Networks.Type): Address;
+    toAddress(network?: Networks.Type): Address;
     toString(): string;
     toHex(): string;
     inspect(): string;
@@ -515,7 +515,7 @@ declare module 'bsv' {
     readonly phrase: string;
 
     toSeed(passphrase?: string): Buffer;
-    toHDPrivateKey(passphrase: string, network: string | number): HDPrivateKey;
+    toHDPrivateKey(passphrase: string, network: Networks.Type): HDPrivateKey;
     toString(): string;
     inspect(): string;
 
@@ -750,7 +750,7 @@ declare module 'bsv' {
     checkMinimalPush(i: number): boolean;
     getSignatureOperationsCount(accurate: boolean): number;
 
-    toAddress(network?: string): Address;
+    toAddress(network?: Networks.Type): Address;
   }
 
   export interface Util {
@@ -760,12 +760,12 @@ declare module 'bsv' {
   }
 
   export namespace Networks {
-    type Type = 'livenet' | 'testnet' | Network;
-
     interface Network {
       readonly name: string;
       readonly alias: string;
     }
+
+    type Type = 'livenet' | 'testnet' | Network;
 
     const livenet: Network;
     const mainnet: Network;
@@ -773,9 +773,9 @@ declare module 'bsv' {
     const defaultNetwork: Network;
 
     function add(data: any): Network;
-    function remove(network: Network): void;
+    function remove(network: Networks.Type): void;
     function get(
-      args: string | number | Network,
+      args: string | number | Networks.Type,
       keys: string | string[]
     ): Network;
   }
