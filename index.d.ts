@@ -6,7 +6,7 @@
 // Definitions extended by: David Case <https://github.com/shruggr>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import BN_P = require( "bn.js" );
+import BN_P = require('bn.js');
 
 /// <reference types="bn.js" />
 
@@ -193,7 +193,7 @@ declare module 'bsv' {
   export namespace crypto {
     interface IOpts {
       endian: 'big' | 'little';
-      size?: number
+      size?: number;
     }
 
     class BN extends BN_P {
@@ -285,7 +285,7 @@ declare module 'bsv' {
 
       setScript(script: Script | string | Buffer): this;
       inspect(): string;
-      toObject(): {satoshis: number, script: string};
+      toObject(): { satoshis: number; script: string };
       getSize(): number;
       toBufferWriter(writer: encoding.BufferWriter): encoding.BufferWriter;
     }
@@ -631,9 +631,14 @@ declare module 'bsv' {
       opts: object
     ): Script;
 
-    function buildPublicKeyHashOut(address: Address | PublicKey | string): Script;
+    function buildPublicKeyHashOut(
+      address: Address | PublicKey | string
+    ): Script;
     function buildPublicKeyOut(pubkey: PublicKey): Script;
-    function buildSafeDataOut(data: string | Buffer | Array<string | Buffer>, encoding?: string): Script;
+    function buildSafeDataOut(
+      data: string | Buffer | Array<string | Buffer>,
+      encoding?: string
+    ): Script;
     function buildScriptHashOut(script: Script): Script;
     function buildPublicKeyIn(
       signature: crypto.Signature | Buffer,
@@ -755,7 +760,7 @@ declare module 'bsv' {
   }
 
   export namespace Networks {
-    type Type = 'livenet' | 'testnet';
+    type Type = 'livenet' | 'testnet' | Network;
 
     interface Network {
       readonly name: string;
@@ -765,6 +770,7 @@ declare module 'bsv' {
     const livenet: Network;
     const mainnet: Network;
     const testnet: Network;
+    const defaultNetwork: Network;
 
     function add(data: any): Network;
     function remove(network: Network): void;
@@ -813,5 +819,37 @@ declare module 'bsv' {
     toMilis(): number;
     toBits(): number;
     toSatoshis(): number;
+  }
+
+  export class BlockHeader {
+    constructor(arg: Buffer | JSON | object);
+
+    toObject(): {
+      hash: string;
+      version: number;
+      prevHash: string;
+      merkleRoot: string;
+      time: number;
+      bits: number;
+      nonce: number;
+    };
+  }
+  export class MerkleBlock {
+    constructor(arg: Buffer | JSON | object);
+
+    toObject(): {
+      header: {
+        hash: string;
+        version: number;
+        prevHash: string;
+        merkleRoot: string;
+        time: number;
+        bits: number;
+        nonce: number;
+      };
+      numTransactions: number;
+      hashes: Array<string>;
+      flags: Array<number>;
+    };
   }
 }
