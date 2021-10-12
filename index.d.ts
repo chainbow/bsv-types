@@ -656,6 +656,11 @@ declare module 'bsv' {
     function fromString(str: string): Script;
     function fromBuffer(buf: Buffer): Script;
 
+    function toASM(): string;
+    function toBuffer(): Buffer;
+    function toHex(): string;
+    function toString(): string;
+
     function empty(): Script;
 
     namespace Interpreter {
