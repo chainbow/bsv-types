@@ -245,6 +245,7 @@ declare module 'bsv' {
 
     class Signature {
       static fromDER(sig: Buffer): Signature;
+      static fromTxFormat(buf: Buffer): Signature;
       static fromString(data: string): Signature;
       static SIGHASH_ALL: number;
       static SIGHASH_NONE: number;
@@ -369,7 +370,7 @@ declare module 'bsv' {
     change(address: Address | string): this;
     fee(amount: number): this;
     feePerKb(amount: number): this;
-    sign(privateKey: PrivateKey[] | string[] | PrivateKey | string): this;
+    sign(privateKey: PrivateKey[] | string[] | PrivateKey | string, sigtype?:number): this;
     applySignature(sig: crypto.Signature): this;
     addInput(
       input: Transaction.Input,
