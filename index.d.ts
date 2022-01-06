@@ -388,7 +388,6 @@ declare module 'bsv' {
     hasWitnesses(): boolean;
     getFee(): number;
     getChangeOutput(): Transaction.Output | null;
-    getChangeAmount(): number;
     getLockTime(): Date | number;
 
     verify(): string | boolean;
