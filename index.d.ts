@@ -810,7 +810,17 @@ declare module 'bsv' {
       hash: Buffer | Uint8Array,
       network: Networks.Type
     ): Address;
+    isValid(data: Buffer | Uint8Array | string | object,
+      network?: Networks.Type | string,
+      type?: string): boolean;
     toBuffer(): Buffer;
+    toHex(): string;
+    toString(): string;
+    toObject(): {
+      hash: string,
+      type: string,
+      network: string
+    };
   }
 
   export class Unit {
