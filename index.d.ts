@@ -370,7 +370,10 @@ declare module 'bsv' {
     change(address: Address | string): this;
     fee(amount: number): this;
     feePerKb(amount: number): this;
-    sign(privateKey: PrivateKey[] | string[] | PrivateKey | string, sigtype?:number): this;
+    sign(
+      privateKey: PrivateKey[] | string[] | PrivateKey | string,
+      sigtype?: number
+    ): this;
     applySignature(sig: crypto.Signature): this;
     addInput(
       input: Transaction.Input,
@@ -385,6 +388,7 @@ declare module 'bsv' {
     hasWitnesses(): boolean;
     getFee(): number;
     getChangeOutput(): Transaction.Output | null;
+    getChangeAmount(): number;
     getLockTime(): Date | number;
 
     verify(): string | boolean;
@@ -810,16 +814,18 @@ declare module 'bsv' {
       hash: Buffer | Uint8Array,
       network: Networks.Type
     ): Address;
-    isValid(data: Buffer | Uint8Array | string | object,
+    isValid(
+      data: Buffer | Uint8Array | string | object,
       network?: Networks.Type | string,
-      type?: string): boolean;
+      type?: string
+    ): boolean;
     toBuffer(): Buffer;
     toHex(): string;
     toString(): string;
     toObject(): {
-      hash: string,
-      type: string,
-      network: string
+      hash: string;
+      type: string;
+      network: string;
     };
   }
 
